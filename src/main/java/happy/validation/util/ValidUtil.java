@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 /**
  * valid content
  */
+@Deprecated
 public class ValidUtil {
 
     public static void valid(Object parms, Verify verify) {

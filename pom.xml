@@ -6,13 +6,36 @@
 
     <groupId>com.github.liubingxu18</groupId>
     <artifactId>verifydata</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.0</version>
+    <description>spring controler层数据校验工具</description>
+
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <tag>master</tag>
+        <url>git@github.com:LiuBingXu18/verifydata.git</url>
+        <connection>scm:git@github.com:LiuBingXu18/verifydata.git</connection>
+        <developerConnection>scm:git@github.com:LiuBingXu18/verifydata.git</developerConnection>
+    </scm>
 
     <developers>
         <developer>
             <name>刘炳旭</name>
             <url>https://github.com/liubingxu18/</url>
             <email>1274604226@qq.com</email>
+            <organization>beijing</organization>
         </developer>
     </developers>
 
@@ -31,6 +54,10 @@
 
     <packaging>jar</packaging>
 
+    <properties>
+        <aspectj.version>1.9.4</aspectj.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -42,9 +69,7 @@
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
-            <version>1.9.4</version>
-            <scope>provided</scope>
-            <optional>true</optional>
+            <version>${aspectj.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -53,13 +78,6 @@
             <scope>provided</scope>
             <optional>true</optional>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>junit</groupId>-->
-<!--            <artifactId>junit</artifactId>-->
-<!--            <version>4.12</version>-->
-<!--            <scope>provided</scope>-->
-<!--            <optional>true</optional>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
