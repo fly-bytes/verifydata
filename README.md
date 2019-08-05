@@ -7,6 +7,12 @@
 - 是否为空
 
 ### 使用教程如下
+引入maven
+     <dependency>
+          <groupId>com.github.liubingxu18</groupId>
+          <artifactId>verifydata</artifactId>
+          <version>1.1</version>
+     </dependency>
 
     @GetMapping("/test")
     @happy.validation.Validation
