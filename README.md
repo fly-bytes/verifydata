@@ -8,12 +8,14 @@
 
 ### 教程如下
 
-springboot项目引入maven
-        <dependency>
-            <groupId>com.github.liubingxu18</groupId>
-            <artifactId>verifydata</artifactId>
-            <version>1.1</version>
-        </dependency>
+springboot项目引入maven  
+```javascript
+ <dependency>
+    <groupId>com.github.liubingxu18</groupId>
+    <artifactId>verifydata</artifactId>
+    <version>1.1</version>
+ </dependency>
+```
 例如：
 
     @GetMapping("/test")
