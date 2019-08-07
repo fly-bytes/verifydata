@@ -39,15 +39,15 @@ public class VerifyParms {
      */
     public void verify(VerifyFilterChain verifyFilterChain) {
         if (args.length == 0) return;
-        // traversing parm
+        // 遍历参数 第一类是基础类型，第二类是对象，暂不校验List
         for (int i = 0; i < args.length; i++) {
             LOGGER.info("verify " + parmsName.get(i) + "=[" + args[i] + "]");
-            if ((args[i] == null && list.get(i) != null) ||
-                    (common.indexOf(parmsType.get(i)) != -1 && list.get(i) != null)) {
+
+            if (list.get(i) != null && (args[i] == null || common.indexOf(parmsType.get(i)) != -1 )) {
                 verifyFilterChain.doFilter(args[i], list.get(i));
             } else if (common.indexOf(parmsType.get(i)) == -1) {
-                // verify class
                 Field[] fields = args[i].getClass().getDeclaredFields();
+
                 for (int j = 0; j < fields.length; j++) {
                     if (fields[j].isAnnotationPresent(Verify.class) && common.indexOf(fields[j].getGenericType().getTypeName()) != -1) {
                         try {
