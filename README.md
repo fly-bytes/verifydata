@@ -20,16 +20,16 @@ springboot项目引入maven
 
     @GetMapping("/test")
     @happy.validation.Validation
-    public TBean get(@happy.validation.verify.Verify(maxLength = 2, message = "长度最长为2") String test,
-                      TBean tBean){
+    public TBean get(@Verify(maxLength = 2, message = "长度最长为2") 
+                     @RequestParms("test") String test, TBean tBean){
         return tBean;
     }
 
     @Data
     private class TBean{
-        @happy.validation.verify.Verify(notNull = true, message = "主键不能为空")
+        @Verify(notNull = true, message = "主键不能为空")
         private int id;
-        @happy.validation.verify.Verify(maxLength = 20, message = "用户名最长20")
+        @Verify(maxLength = 20, message = "用户名最长20")
         private String name;
     }
 
@@ -38,6 +38,6 @@ springboot项目引入maven
 {
   "code": "-1",
   "data": null,
-  "message": "邮箱格式不对"
+  "message": "主键不能为空"
 }
 ```

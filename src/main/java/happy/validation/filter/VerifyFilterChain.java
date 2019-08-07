@@ -21,4 +21,9 @@ public class VerifyFilterChain {
         }
     }
 
+    public static void main(String[] args) {
+        for (String s : order) {
+            System.out.println(s);
+        }
+    }
 }

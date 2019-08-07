@@ -17,15 +17,11 @@ import java.util.List;
 public class VerifyParms {
     private final static Log LOGGER = LogFactory.getLog(VerifyParms.class);
 
-    // Verify List
-    private List<Verify> list = new ArrayList();
-    // parms List
-    private Object[] args = {};
-    // parms type
-    private List<String> parmsType = new ArrayList();
-    // parms name
-    private List<String> parmsName = new ArrayList<>();
-    private String common = ",int,long,double,float,char,boolean,short,java.lang.Integer,java.lang.Boolean,java.lang.Character,java.lang.Long,java.lang.Short,java.lang.Float,java.lang.Double,java.lang.String,";
+    private List<Verify>   list      =   new ArrayList();
+    private Object[]       args      =   {};
+    private List<String>   parmsType =   new ArrayList();
+    private List<String>   parmsName =   new ArrayList<>();
+    private String         common    =   ",int,long,double,float,char,boolean,short,java.lang.Integer,java.lang.Boolean,java.lang.Character,java.lang.Long,java.lang.Short,java.lang.Float,java.lang.Double,java.lang.String,";
 
     public VerifyParms(JoinPoint joinPoint) {
         args = joinPoint.getArgs();
