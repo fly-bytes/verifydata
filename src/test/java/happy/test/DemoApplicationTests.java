@@ -1,7 +1,5 @@
 package happy.test;
 
-import net.minidev.json.JSONObject;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,10 +14,6 @@ import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
@@ -38,16 +32,12 @@ public class DemoApplicationTests {
 
     @Test
     public void execute() throws Exception {
-        RequestBuilder request = MockMvcRequestBuilders.get("/get");
 
-        MvcResult mvcResult = mockMvc.perform(request)
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
-                .andReturn();
-        int status = mvcResult.getResponse().getStatus();
+        RequestBuilder request = MockMvcRequestBuilders.post("/get")
+                .accept(MediaType.TEXT_HTML_VALUE);
+        MvcResult mvcResult = mockMvc.perform(request).andReturn();
+        MvcResult mvcResult1 = mockMvc.perform(request).andReturn();
         String content = mvcResult.getResponse().getContentAsString();
-        Assert.assertTrue("正确", status == 200);
-        Assert.assertFalse("错误", status != 200);
-        System.out.println("返回结果：" + status);
-        System.out.println(content);
+        System.out.println(new String(content.getBytes(), "utf-8"));
     }
 }
