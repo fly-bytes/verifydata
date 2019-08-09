@@ -9,8 +9,8 @@ import org.springframework.util.StringUtils;
 
 import java.util.regex.Pattern;
 
-@FilterStrategy(type = "regexVerifyFilter")
 @Component
+@FilterStrategy(type = "regexVerifyFilter")
 public class RegexVerifyFilter implements VerifyFilter {
     @Override
     public void doFilter(Object parms, Verify verify) {

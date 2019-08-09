@@ -6,8 +6,8 @@ import happy.validation.filter.annotation.FilterStrategy;
 import happy.validation.verify.Verify;
 import org.springframework.stereotype.Component;
 
-@FilterStrategy(type = "lengthVerifyFilter")
 @Component
+@FilterStrategy(type = "lengthVerifyFilter")
 public class LengthVerifyFilter implements VerifyFilter {
     @Override
     public void doFilter(Object parms, Verify verify) {

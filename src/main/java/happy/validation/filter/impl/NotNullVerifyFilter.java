@@ -6,8 +6,8 @@ import happy.validation.filter.annotation.FilterStrategy;
 import happy.validation.verify.Verify;
 import org.springframework.stereotype.Component;
 
-@FilterStrategy(type = "notNullVerifyFilter")
 @Component
+@FilterStrategy(type = "notNullVerifyFilter")
 public class NotNullVerifyFilter implements VerifyFilter {
     @Override
     public void doFilter(Object parms, Verify verify) {

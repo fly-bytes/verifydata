@@ -1,17 +1,16 @@
 package happy.test.bean;
 
 import happy.validation.config.bean.ResponseBody;
-import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.ScopedProxyMode;
 
 public class Responses extends ResponseBody {
-    private String pwd;
+    private int status = 500;
 
-    public String getPwd() {
-        return pwd;
+    public int getStatus() {
+        return status;
     }
 
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
+    @Override
+    public void setCode(String code) {
+        super.setCode("500");
     }
 }

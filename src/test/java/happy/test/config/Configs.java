@@ -14,7 +14,7 @@ import org.springframework.http.converter.HttpMessageConverter;
 public class Configs {
 
     @Bean("responseBody")
-    @Scope(scopeName = "prototype", proxyMode = ScopedProxyMode.TARGET_CLASS)
+    @Scope(scopeName = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
     public Responses responseBody() {
         return new Responses();
     }

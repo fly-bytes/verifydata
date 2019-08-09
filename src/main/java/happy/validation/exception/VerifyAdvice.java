@@ -14,7 +14,6 @@ public class VerifyAdvice {
     @ExceptionHandler
     @org.springframework.web.bind.annotation.ResponseBody
     public ResponseBody verifyException(VerifyException verifyException) {
-        responseBody.setMessage(verifyException.getMessage());
-        return responseBody;
+        return responseBody.setMessage(verifyException.getMessage());
     }
 }

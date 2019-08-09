@@ -21,7 +21,7 @@ public class ValidationAspect {
 
     @Before("validation()")
     public void validations(JoinPoint joinPoint) {
-        // 得到参数是否需要校验
+        // 得到需要校验的参数
         VerifyParms verifyParms = new VerifyParms(joinPoint);
         // 校验
         verifyParms.verify(verifyFilterChain);

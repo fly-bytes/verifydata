@@ -8,6 +8,14 @@ public class ResponseBody {
     public ResponseBody() {
     }
 
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
+    }
+
     public ResponseBody(Object data) {
         this.data = data;
     }
@@ -24,7 +32,8 @@ public class ResponseBody {
         return data;
     }
 
-    public void setMessage(String message) {
+    public ResponseBody setMessage(String message) {
         this.message = message;
+        return this;
     }
 }

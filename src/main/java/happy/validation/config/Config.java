@@ -9,7 +9,7 @@ import org.springframework.context.annotation.*;
 public class Config {
 
     @Bean
-    @Scope(scopeName = "prototype", proxyMode = ScopedProxyMode.TARGET_CLASS)
+    @Scope(scopeName = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
     @Conditional(ResponseCondition.class)
     public ResponseBody responseBody() {
         return new ResponseBody();
