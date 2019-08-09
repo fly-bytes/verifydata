@@ -1,6 +1,7 @@
 package happy.test;
 
 import happy.validation.Validation;
+import happy.validation.util.VerifyType;
 import happy.validation.verify.Verify;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
@@ -18,7 +19,7 @@ public class TestController {
     @RequestMapping("/get")
     @Validation
     @ResponseBody
-    public String test_1(@Verify(notNull = true, maxLength = 8, message = "name cat'n null")
+    public String test_1(@Verify(regexType = VerifyType.IDCARD , message = "age wrong...")
                          @RequestParam(name = "name", required = false) String name){
         return "welcome " + name;
     }
