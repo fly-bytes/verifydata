@@ -18,7 +18,7 @@ public class TestController {
     @RequestMapping("/get")
     @Validation
     @ResponseBody
-    public String test_1(@Verify(notNull = true, message = "name cat'n null")
+    public String test_1(@Verify(notNull = true, maxLength = 8, message = "name cat'n null")
                          @RequestParam(name = "name", required = false) String name){
         return "welcome " + name;
     }

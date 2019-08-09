@@ -20,10 +20,4 @@ public class VerifyFilterChain {
             verifyFactory.getVerifyFilterByType(type).doFilter(parms, verify);
         }
     }
-
-    public static void main(String[] args) {
-        for (String s : order) {
-            System.out.println(s);
-        }
-    }
 }

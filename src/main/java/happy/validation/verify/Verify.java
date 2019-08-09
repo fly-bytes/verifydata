@@ -12,7 +12,7 @@ public @interface Verify {
     // 最大长度
     int maxLength() default Integer.MAX_VALUE;
     // 最小长度
-    int minLength() default Integer.MIN_VALUE;
+    int minLength() default -1;
     // 是否为空
     boolean notNull() default false;
     // 正则校验

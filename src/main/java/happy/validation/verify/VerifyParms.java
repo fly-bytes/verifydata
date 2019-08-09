@@ -18,7 +18,7 @@ public class VerifyParms {
     private final static Log LOGGER = LogFactory.getLog(VerifyParms.class);
 
     private List<Verify>   list      =   new ArrayList();
-    private Object[]       args      =   {};
+    private Object[]       args;
     private List<String>   parmsType =   new ArrayList();
     private List<String>   parmsName =   new ArrayList<>();
     private String         common    =   ",int,long,double,float,char,boolean,short,java.lang.Integer,java.lang.Boolean,java.lang.Character,java.lang.Long,java.lang.Short,java.lang.Float,java.lang.Double,java.lang.String,";
@@ -39,6 +39,7 @@ public class VerifyParms {
      */
     public void verify(VerifyFilterChain verifyFilterChain) {
         if (args.length == 0) return;
+
         // 遍历参数 第一类是基础类型，第二类是对象，暂不校验List
         for (int i = 0; i < args.length; i++) {
             LOGGER.info("verify " + parmsName.get(i) + "=[" + args[i] + "]");
