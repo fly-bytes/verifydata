@@ -48,7 +48,7 @@ public class VerifyParms {
 
             if (list.get(i) != null && (args[i] == null || common.contains(parmsType.get(i)))) {
                 verifyFilterChain.doFilter(args[i], list.get(i));
-            } else if (common.contains(parmsType.get(i))) {
+            } else if (!common.contains(parmsType.get(i))) {
                 Field[] fields = args[i].getClass().getDeclaredFields();
 
                 for (int j = 0; j < fields.length; j++) {

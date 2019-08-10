@@ -1,5 +1,6 @@
 package happy.test;
 
+import happy.test.bean.Person;
 import happy.validation.Validation;
 import happy.validation.util.VerifyType;
 import happy.validation.verify.Verify;
@@ -20,7 +21,7 @@ public class TestController {
     @Validation
     @ResponseBody
     public String test_1(@Verify(regexType = VerifyType.IDCARD , message = "age wrong...")
-                         @RequestParam(name = "name", required = false) String name){
+                         @RequestParam(name = "name", required = false) String name, Person person){
         return "welcome " + name;
     }
 }
