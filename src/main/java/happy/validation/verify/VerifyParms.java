@@ -9,6 +9,7 @@ import org.aspectj.lang.JoinPoint;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -17,11 +18,12 @@ import java.util.List;
 public class VerifyParms {
     private final static Log LOGGER = LogFactory.getLog(VerifyParms.class);
 
-    private List<Verify>   list      =   new ArrayList();
-    private Object[]       args;
-    private List<String>   parmsType =   new ArrayList();
-    private List<String>   parmsName =   new ArrayList<>();
-    private String         common    =   ",int,long,double,float,char,boolean,short,java.lang.Integer,java.lang.Boolean,java.lang.Character,java.lang.Long,java.lang.Short,java.lang.Float,java.lang.Double,java.lang.String,";
+    private List<Verify> list = new ArrayList();
+    private Object[] args;
+    private List<String> parmsType = new ArrayList();
+    private List<String> parmsName = new ArrayList<>();
+    private List<String> common    = Arrays.asList("int", "long", "double", "float", "char", "boolean", "short"
+            , "java.lang.Integer", "java.lang.Long", "java.lang.Double", "java.lang.Short", "java.lang.Float", " java.lang.Boolean", "java.lang.Character", "java.lang.String");
 
     public VerifyParms(JoinPoint joinPoint) {
         args = joinPoint.getArgs();
@@ -44,13 +46,13 @@ public class VerifyParms {
         for (int i = 0; i < args.length; i++) {
             LOGGER.info("verify " + parmsName.get(i) + "=[" + args[i] + "]");
 
-            if (list.get(i) != null && (args[i] == null || common.indexOf(parmsType.get(i)) != -1 )) {
+            if (list.get(i) != null && (args[i] == null || common.contains(parmsType.get(i)))) {
                 verifyFilterChain.doFilter(args[i], list.get(i));
-            } else if (common.indexOf(parmsType.get(i)) == -1) {
+            } else if (common.contains(parmsType.get(i))) {
                 Field[] fields = args[i].getClass().getDeclaredFields();
 
                 for (int j = 0; j < fields.length; j++) {
-                    if (fields[j].isAnnotationPresent(Verify.class) && common.indexOf(fields[j].getGenericType().getTypeName()) != -1) {
+                    if (fields[j].isAnnotationPresent(Verify.class) && common.contains(fields[j].getGenericType().getTypeName())) {
                         try {
                             // set field access
                             fields[j].setAccessible(true);

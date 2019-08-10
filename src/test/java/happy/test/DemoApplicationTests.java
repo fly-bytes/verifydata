@@ -34,7 +34,7 @@ public class DemoApplicationTests {
     public void execute() throws Exception {
 
         RequestBuilder request = MockMvcRequestBuilders.post("/get")
-                .param("name", "41112119940528401x?")
+                .param("name", "41112119940528401x")
                 .accept(MediaType.TEXT_HTML_VALUE);
         MvcResult mvcResult = mockMvc.perform(request).andReturn();
         System.out.println(new String(mvcResult.getResponse().getContentAsString().getBytes(), "utf-8"));
