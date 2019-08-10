@@ -65,6 +65,6 @@ public class Responses extends ResponseBody {
 @Scope(scopeName = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public Responses responseBody() {
     return new Responses();
-}
+} 
 ```
 
