@@ -13,7 +13,7 @@ springboot项目引入maven
  <dependency>
     <groupId>com.github.liubingxu18</groupId>
     <artifactId>verifydata</artifactId>
-    <version>1.3</version>
+    <version>1.4</version>
  </dependency>
 ```
 例如：
