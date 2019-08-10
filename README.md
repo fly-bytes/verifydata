@@ -40,4 +40,31 @@ springboot项目引入maven
   "data": null,
   "message": "主键不能为空"
 }
+```  
+如果返回json格式不是必须的，你可以按照下面步骤增强实体类。   
+建立实体类继承happy.validation.config.bean.ResponseBody   
+```javascript
+import happy.validation.config.bean.ResponseBody;
+
+public class Responses extends ResponseBody {
+    private int status = 500;
+
+    public int getStatus() {
+        return status;
+    }
+
+    @Override
+    public void setCode(String code) {
+        super.setCode("500");
+    }
+}
 ```
+配置一下bean
+```javascript
+@Bean("responseBody")
+@Scope(scopeName = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
+public Responses responseBody() {
+    return new Responses();
+}
+```
+
