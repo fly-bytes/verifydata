@@ -1,14 +1,14 @@
 package happy.test;
 
+import happy.test.bean.User;
 import happy.validation.Validation;
 import happy.validation.util.VerifyType;
 import happy.validation.verify.Verify;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @SpringBootApplication
@@ -20,7 +20,22 @@ public class TestController {
     @Validation
     @ResponseBody
     public String test_1(@Verify(regexType = VerifyType.IDCARD , message = "age wrong...")
-                         @RequestParam(name = "name", required = false) String name){
+                         @RequestParam(name = "names", required = false) String names){
+        return "welcome " + names;
+    }
+
+    @RequestMapping("/gets/{name}/end")
+    @Validation
+    @ResponseBody
+    public String test_2(@Verify(maxLength = 3, message = "name max length 3...")
+                         @PathVariable("name") String name){
         return "welcome " + name;
+    }
+
+    @RequestMapping("/postJson")
+    @Validation
+    @ResponseBody
+    public List<User> postJson(@Verify(notNull = true) @RequestBody List<User> users){
+        return  users;
     }
 }
