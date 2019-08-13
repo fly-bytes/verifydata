@@ -10,6 +10,7 @@ public class User {
     private int userid;
     @Verify(notNull = true, message = "日期不能为空")
     private Date date;
+    private Responses responses;
 
     public User(String name, int userid, Date date) {
         this.name = name;
@@ -39,6 +40,14 @@ public class User {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public Responses getResponses() {
+        return responses;
+    }
+
+    public void setResponses(Responses responses) {
+        this.responses = responses;
     }
 
     @Override

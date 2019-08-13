@@ -20,7 +20,9 @@ public class TestController {
     @Validation
     @ResponseBody
     public String test_1(@Verify(regexType = VerifyType.IDCARD , message = "age wrong...")
-                         @RequestParam(name = "names", required = false) String names){
+                         @RequestParam(name = "names", required = false) String names,
+                         @Verify(minLength = -1, message = "age wrong...")
+                         @RequestParam(name = "b") boolean b){
         return "welcome " + names;
     }
 

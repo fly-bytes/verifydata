@@ -47,7 +47,7 @@ public class VerifyParms {
 
         // 遍历参数 第一类是基础类型，第二类是对象，第三类是List
         for (int i = 0; i < args.length; i++) {
-            LOGGER.info("verify " + parmsName.get(i) + "=" + args[i] + "，parmsType=" + parmsType);
+            LOGGER.info("verify " + parmsName.get(i) + "=" + args[i] + "，parmsType=" + parmsType.get(i));
 
             if (list.get(i) != null && (args[i] == null || baseType.contains(parmsType.get(i)))) {
                 verifyFilterChain.doFilter(args[i], list.get(i));
