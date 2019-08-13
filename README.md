@@ -69,6 +69,6 @@ controller方法上加上注解@Validation，需要校验的参数上加上@Veri
     @Bean("responseBody")
     @Scope(scopeName = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
     public Responses responseBody() {
-    return new Responses();
+       return new Responses();
     } 
 
