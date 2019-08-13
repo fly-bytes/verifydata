@@ -56,7 +56,7 @@ public class DemoApplicationTests {
     public void testParmJson() throws Exception {
         List<User> users = new ArrayList<>();
         User u = new User("ls", 1, new Date());
-        User u1 = new User("zs", 2, new Date());
+        User u1 = new User("zs", 2, null);
         users.add(u);
         users.add(u1);
         RequestBuilder request = MockMvcRequestBuilders.post("/postJson")

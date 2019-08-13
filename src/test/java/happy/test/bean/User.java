@@ -5,9 +5,10 @@ import happy.validation.verify.Verify;
 import java.util.Date;
 
 public class User {
-    @Verify(maxLength = 2, message = "姓名最长为2")
+    @Verify(maxLength = 20, message = "姓名最长为20")
     private String name;
     private int userid;
+    @Verify(notNull = true, message = "日期不能为空")
     private Date date;
 
     public User(String name, int userid, Date date) {

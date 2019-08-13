@@ -24,7 +24,8 @@ public class VerifyParms {
     private List<String> parmsType = new ArrayList();
     private List<String> parmsName = new ArrayList<>();
     private List<String> baseType = Arrays.asList("int", "long", "double", "float", "char", "boolean", "short"
-            , "java.lang.Integer", "java.lang.Long", "java.lang.Double", "java.lang.Short", "java.lang.Float", " java.lang.Boolean", "java.lang.Character", "java.lang.String");
+            , "java.lang.Integer", "java.lang.Long", "java.lang.Double", "java.lang.Short", "java.lang.Float"
+            , " java.lang.Boolean", "java.lang.Character", "java.lang.String", "java.util.Date");
     private String listType = "java.util.List";
 
     public VerifyParms(JoinPoint joinPoint) {
