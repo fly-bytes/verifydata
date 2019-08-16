@@ -18,7 +18,7 @@ springboot项目引入下面依赖
     <dependency>
         <groupId>com.github.liubingxu18</groupId>
         <artifactId>verifydata</artifactId>
-        <version>1.4</version>
+        <version>1.5</version>
     </dependency>
 
 
