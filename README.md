@@ -16,9 +16,9 @@
 springboot项目引入下面依赖   
   
     <dependency>
-        <groupId>com.github.liubingxu18</groupId>
+        <groupId>com.github.fly-bytes</groupId>
         <artifactId>verifydata</artifactId>
-        <version>1.5</version>
+        <version>1.0</version>
     </dependency>
 
 
