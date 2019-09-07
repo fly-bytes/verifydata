@@ -2,8 +2,6 @@ package happy.test.config;
 
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import happy.test.bean.Responses;
-import happy.validation.config.bean.ResponseBody;
-import happy.validation.exception.VerifyAdvice;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
@@ -17,7 +15,7 @@ import java.util.List;
 @Configuration
 public class Configs {
 
-    @Bean("responseBody")
+    @Bean("verifyErrorMessage")
     @Scope(scopeName = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
     public Responses responseBody() {
         return new Responses();

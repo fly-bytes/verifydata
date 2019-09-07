@@ -1,7 +1,7 @@
 package happy.validation.config;
 
 import happy.validation.condition.ResponseCondition;
-import happy.validation.config.bean.ResponseBody;
+import happy.validation.config.bean.VerifyErrorMessage;
 import org.springframework.context.annotation.*;
 
 @Configuration
@@ -11,8 +11,8 @@ public class Config {
     @Bean
     @Scope(scopeName = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
     @Conditional(ResponseCondition.class)
-    public ResponseBody responseBody() {
-        return new ResponseBody();
+    public VerifyErrorMessage responseBody() {
+        return new VerifyErrorMessage();
     }
 
 }

@@ -1,8 +1,8 @@
 package happy.test.bean;
 
-import happy.validation.config.bean.ResponseBody;
+import happy.validation.config.bean.VerifyErrorMessage;
 
-public class Responses extends ResponseBody {
+public class Responses extends VerifyErrorMessage {
     private int status = 500;
 
     public int getStatus() {

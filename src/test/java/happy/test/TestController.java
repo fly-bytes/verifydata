@@ -35,9 +35,9 @@ public class TestController {
     }
 
     @RequestMapping("/postJson")
-    @Validation
+    @Validation({User.TestAdd.class})
     @ResponseBody
-    public List<User> postJson(@Verify(notNull = true) @RequestBody List<User> users){
+    public List<User> postJson(@Verify @RequestBody List<User> users){
         return  users;
     }
 }

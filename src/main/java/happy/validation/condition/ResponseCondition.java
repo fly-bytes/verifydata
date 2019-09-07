@@ -8,7 +8,7 @@ public class ResponseCondition implements Condition {
 
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
-        if(context.getBeanFactory().containsBean("responseBody"))  return false;
+        if(context.getBeanFactory().containsBean("verifyErrorMessage"))  return false;
         return true;
     }
 

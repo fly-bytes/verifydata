@@ -17,13 +17,12 @@ public class ValidationAspect {
     private VerifyFilterChain verifyFilterChain;
 
     @Pointcut("@annotation(happy.validation.Validation)")
-    public void validation(){}
+    public void validation() {
+    }
 
     @Before("validation()")
     public void validations(JoinPoint joinPoint) {
-        // 得到需要校验的参数
-        VerifyParms verifyParms = new VerifyParms(joinPoint);
-        // 校验
-        verifyParms.verify(verifyFilterChain);
+        new VerifyParms(joinPoint).verify(verifyFilterChain);
     }
+
 }

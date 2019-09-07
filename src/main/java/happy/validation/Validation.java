@@ -8,4 +8,7 @@ import java.lang.annotation.*;
 @Documented
 @Target({ElementType.METHOD, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Validation {}
+public @interface Validation {
+    // 校验组
+    Class<? extends Object>[] value() default {};
+}

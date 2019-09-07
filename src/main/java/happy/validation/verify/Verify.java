@@ -5,7 +5,7 @@ import happy.validation.util.VerifyType;
 import java.lang.annotation.*;
 
 /**
- * 校验属性
+ * 校验属性，放到对象、集合上不用加属性，只起标识作用
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
@@ -28,4 +28,7 @@ public @interface Verify {
 
     // 校验错误返回信息
     String message() default "数据格式错误";
+
+    // 校验组
+    Class<? extends Object>[] groups() default {};
 }

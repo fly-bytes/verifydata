@@ -2,6 +2,7 @@ package happy.test;
 
 import com.alibaba.fastjson.JSON;
 import happy.test.bean.User;
+import happy.test.bean.UserInfo;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,6 +19,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -56,12 +58,15 @@ public class DemoApplicationTests {
     @Test
     public void testParmJson() throws Exception {
         List<User> users = new ArrayList<>();
-        User u = new User("ls", 1, new Date());
-        User u1 = new User("zs", 2, new Date());
+        User u = new User("zhangsan", 1, new Date());
+        List<String> ids = Arrays.asList("1", "2", "123");
+        UserInfo u1 = new UserInfo("lisi", 2);
+//        u.setUserInfo(u1);
         users.add(u);
-        users.add(u1);
+//        u.setIds(ids);
         RequestBuilder request = MockMvcRequestBuilders.post("/postJson")
-                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE).content(JSON.toJSONString(users));
+                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE).content(JSON.toJSONString(users))
+                .param("email", "1@qq.com");
         MvcResult mvcResult = mockMvc.perform(request).andReturn();
         System.out.println(new String(mvcResult.getResponse().getContentAsString().getBytes(), "utf-8"));
     }

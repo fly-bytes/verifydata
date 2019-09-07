@@ -3,14 +3,14 @@ package happy.test.bean;
 import happy.validation.verify.Verify;
 
 import java.util.Date;
+import java.util.List;
 
 public class User {
-    @Verify(maxLength = 20, message = "姓名最长为20")
+    @Verify(maxLength = 2, message = "姓名最长为2", groups = TestAdd.class)
     private String name;
     private int userid;
     @Verify(notNull = true, message = "日期不能为空")
     private Date date;
-    private Responses responses;
 
     public User(String name, int userid, Date date) {
         this.name = name;
@@ -42,14 +42,6 @@ public class User {
         this.date = date;
     }
 
-    public Responses getResponses() {
-        return responses;
-    }
-
-    public void setResponses(Responses responses) {
-        this.responses = responses;
-    }
-
     @Override
     public String toString() {
         return "User{" +
@@ -58,4 +50,7 @@ public class User {
                 ", date=" + date +
                 '}';
     }
+
+    public class TestAdd{}
+    public class TestDel{}
 }

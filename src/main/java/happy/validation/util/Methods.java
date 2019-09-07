@@ -22,7 +22,10 @@ public class Methods {
         return null;
     }
 
-    public static void addVerify(List<Verify> list, Method method, List<String> parmsType, List<String> parmsName) {
+    public static void addVerify(List<Verify> list, Method method, List<String> parmsType, List<String> parmsName, List<Object> verifyGroup) {
+        // 校验组
+        verifyGroup.addAll(Arrays.asList(method.getAnnotationsByType(Validation.class)[0].value()));
+        // 设置参数名
         DefaultParameterNameDiscoverer defaultParameterNameDiscoverer = new DefaultParameterNameDiscoverer();
         parmsName.addAll(Arrays.asList(defaultParameterNameDiscoverer.getParameterNames(method)));
 

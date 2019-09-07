@@ -1,11 +1,11 @@
 package happy.validation.config.bean;
 
-public class ResponseBody {
+public class VerifyErrorMessage {
     private String code = "-1";
     private String message = "error";
     private Object data;
 
-    public ResponseBody() {
+    public VerifyErrorMessage() {
     }
 
     public void setCode(String code) {
@@ -16,7 +16,7 @@ public class ResponseBody {
         this.data = data;
     }
 
-    public ResponseBody(Object data) {
+    public VerifyErrorMessage(Object data) {
         this.data = data;
     }
 
@@ -32,7 +32,7 @@ public class ResponseBody {
         return data;
     }
 
-    public ResponseBody setMessage(String message) {
+    public VerifyErrorMessage setMessage(String message) {
         this.message = message;
         return this;
     }

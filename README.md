@@ -4,12 +4,14 @@
 
 - 长度
 - 正则
-- 是否为空   
+- 是否为空
+- 分组校验   
 
 ### 支持校验的对象   
 - 除byte基础类型外
 - List类型
 - 自定义实体
+- 实体嵌套集合和实体
 
 
 ### 教程如下
@@ -18,7 +20,7 @@ springboot项目引入下面依赖
     <dependency>
         <groupId>com.github.fly-bytes</groupId>
         <artifactId>verifydata</artifactId>
-        <version>1.0</version>
+        <version>1.1</version>
     </dependency>
 
 
@@ -49,7 +51,7 @@ controller方法上加上注解@Validation，需要校验的参数上加上@Veri
   
   如果这个json格式不太符合你的要求，你可以这样做增加其他返回字段，建立实体类继承happy.validation.config.bean.ResponseBody
    
-    import happy.validation.config.bean.ResponseBody;
+    import happy.validation.config.bean.VerifyErrorMessage;
     
     public class Responses extends ResponseBody {
     	private int status = 500;
