@@ -24,12 +24,12 @@ springboot项目引入下面依赖
     </dependency>
 
 
-controller方法上加上注解@Validation，需要校验的参数上加上@Verify即可，**自定义bean不需要加**，只需要在bean属性上添加，如下面TBean
+controller方法上加上注解@Validation，需要校验的参数上加上@Verify即可，只需要在bean属性上添加，如下面TBean
 
     @GetMapping("/test")
     @happy.validation.Validation
     public TBean get(@Verify(maxLength = 2, message = "长度最长为2") 
-                     @RequestParms("test") String test, TBean tBean){
+                     @RequestParms("test") String test, @Verify TBean tBean){
         return tBean;
     }
 
